@@ -1,0 +1,121 @@
+@use "../../base";
+
+
+.page--logo{
+    width: 300px;
+    margin-right: 24px;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    /* Black with a little bit see-through */ 
+}
+
+
+.navbar--wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    align-items: center;
+
+
+    @media (min-width: 1024px){
+        grid-template-columns: auto minmax(0,1fr) auto;
+    }
+}
+
+.primary--navigation{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style:none;
+    gap: 1.5em;
+    z-index: 100;
+    font-family: base.$jost-bold, sans-serif;
+    color: base.$color-black-4;
+
+    @media (max-width: 1024px){
+        position: fixed;
+        inset: 0 30% 0 0;
+        background: hsl(0 0% 100%);
+        flex-direction: column;
+        padding: min(5vh, 2rem) 1em
+    }
+}
+
+.nav__item:not(:last-child){
+    @media (max-width: 1024px){
+        border-bottom: 1px solid black;
+    }
+}
+
+
+
+.nav__item{
+    padding: 12px 16px;
+
+    a{
+        text-decoration: none;
+        color: base.$color-black-2;
+        font-size: 1.15rem;
+        letter-spacing: 2px;
+        border-bottom: 3px solid transparent;
+        transition: all .3s ease-out;
+        
+    }
+    a.active{
+        border-color: base.$color-black-1;
+        color: base.$color-black-1;
+        font-weight: 700;
+    }
+
+    
+}
+
+.nav--menu__title{
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.35rem;
+    color: base.$color-black-4;
+    padding-bottom: 24px;
+    margin-bottom: 1em;
+    border-bottom: 2px solid base.$color-black-3;
+
+    @media (min-width: 1024px){
+        display: none;
+    } 
+}
+
+.mobile--nav--toggle{
+    position:absolute;
+    background: url("../../assets/mobile-page-logo.png");
+    width: 1rem;
+    aspect-ratio: 1;
+    top: 2rem;
+    left: 2rem;
+    z-index: 9999
+}
+
+.search--form{
+    grid-column: 1 / -1;
+
+    @media (min-width: 1024px){
+        width: initial;
+        grid-column: auto;
+    }
+
+    input{
+        width: 100%;
+    }
+}
+
+
+
