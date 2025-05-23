@@ -45,7 +45,10 @@
         inset: 0 30% 0 0;
         background: hsl(0 0% 100%);
         flex-direction: column;
-        padding: min(5vh, 2rem) 1em
+        padding: min(5vh, 2rem) 1em;
+
+        // To not have it perma open on smaller sizes for now DELETE IT if done testing
+        visibility: hidden;
     }
 }
 

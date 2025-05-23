@@ -1,4 +1,10 @@
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import {
+  createSearchParams,
+  Link,
+  NavLink,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import "./Navbar.scss";
 
 import pageLogo from "../../assets/page-logo.png";
@@ -7,19 +13,25 @@ import mobileLogo from "../../assets/mobile-page-logo.png";
 import { MdHome, MdSearch, MdClose } from "react-icons/md";
 import { RiFileListFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useRef } from "react";
 
 export const Navbar = () => {
   const HomeLogo = <MdHome size="24px" className="nav--item__icon" />;
 
   const [searchParams, setSearchParams] = useSearchParams("q");
+  const navigate = useNavigate();
+
+  const searchTextRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let formData = new FormData(e.target);
-    let book = formData.get("q");
-    if (!book) return;
-    setSearchParams({ q: book });
-    return;
+    console.log(searchParams);
+    navigate({
+      pathname: "books",
+      search: createSearchParams({
+        q: searchTextRef.current.value,
+      }).toString(),
+    });
   };
 
   return (
@@ -66,6 +78,7 @@ export const Navbar = () => {
           aria-label="Search books"
           placeholder="Book title"
           type="search"
+          ref={searchTextRef}
         />
         <button type="submit">
           <span className="search--button__icon"></span>
@@ -75,4 +88,3 @@ export const Navbar = () => {
     </div>
   );
 };
-

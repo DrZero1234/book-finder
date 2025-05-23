@@ -9,8 +9,13 @@ import { Home } from "./pages/Home/Home";
 import { About } from "./pages/About/About";
 
 import { BookLayout } from "./components/BookLayout/BookLayout";
+
 import { BookListPage } from "./pages/BookListPage/BookListPage";
+import { loader as bookListPageLoader } from "./pages/BookListPage/BookListPage";
+
 import { BookPage } from "./pages/BookPage/BookPage";
+import { loader as bookPageLoader } from "./pages/BookPage/BookPage";
+import { SubjectsListPage } from "./pages/SubjectsListPage/SubjectsListPage";
 
 // PROJECT LINK https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/Book-Finder-App.md
 
@@ -25,9 +30,18 @@ export const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="books" element={<BookLayout />}>
-        <Route index element={<BookListPage />} />
-        <Route path=":bookName" element={<BookPage />} />
+      <Route path="" element={<BookLayout />}>
+        <Route
+          path="books"
+          element={<BookListPage />}
+          loader={bookListPageLoader}
+        />
+        <Route
+          path="book/:bookId"
+          element={<BookPage />}
+          loader={bookPageLoader}
+        />
+        <Route path="subjects" element={<SubjectsListPage />} />
       </Route>
     </Route>
   )
