@@ -1,6 +1,52 @@
 @use "../../base";
 
-.book--cover{
-    object-fit: cover;
-    width: 100%;
+figure {
+  width: 100%;
+  height: 100%;
+}
+
+figure > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+// .book--cover {
+//   object-fit: cover;
+//   display: block;
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 12px;
+//   box-shadow: 20px 17px 20px -15px base.$color-black-1;
+// }
+
+.book--list--item--link {
+  font-family: base.$neue-bold;
+  font-size: 1.2rem;
+}
+
+.book--list--item--cover--wrapper {
+  padding: 2em;
+  background-color: base.$color-gray-2;
+}
+
+.book--list--item--author--details span,
+.author--name--text {
+  font-size: 0.95rem;
+}
+
+.book--list--item--author--details span {
+  color: base.$color-black-4;
+  opacity: 0.55;
+}
+
+.book--list--item--year {
+  font-family: base.$jost-semibold;
+  font-weight: 900;
+  color: base.$color-black-4;
+  font-size: 0.75rem;
+}
+
+.book--list--item--content {
+  margin: 0px 40px;
 }

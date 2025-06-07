@@ -1,1 +1,80 @@
-@use "../../base"
+@use "../../base";
+
+.book--site--wrapper {
+  margin: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 1.5em;
+
+  @media (min-width: 64rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.book--rating {
+  display: flex;
+  gap: 0.15em;
+  align-items: center;
+}
+
+.book--site--details--wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  @media (min-width: 64rem) {
+    margin: 2em 0em;
+  }
+}
+
+.book--cover--image {
+  width: 75%;
+
+  @media (min-width: 64rem) {
+    width: 100%;
+  }
+}
+
+.book--page--details--list--wrapper {
+  display: flex;
+  text-wrap: nowrap;
+  align-items: center;
+}
+
+.book--page--details--list--wrapper > .list--name {
+  color: base.$color-black-1;
+  font-weight: 800;
+  font-family: base.$jost-semibold;
+  margin-right: 10px;
+}
+
+.book--page--details--list--wrapper > .list--item {
+  font-weight: 400;
+  color: base.$color-gray-3;
+}
+.book--page--details--list--wrapper > .list--item:not(:first-child) {
+  margin-left: 5px;
+}
+
+.editions--list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  gap: 1.5em;
+  grid-auto-rows: 1fr;
+
+  @media (min-width: 64rem) {
+    grid-column: 1 / -1;
+  }
+}
+
+.edition--item {
+  height: 100%;
+}
+
+.edition--item img {
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}

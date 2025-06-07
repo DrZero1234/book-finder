@@ -14,15 +14,49 @@ export const getBookListByName = async (searchTerm) => {
   return data;
 };
 
+/*
 export const getBookData = async (id) => {
   const url = `https://openlibrary.org/works/${id}.json`;
-  const res = await fetch(url);
-  if (!res.ok) {
+  const bookRes = await fetch(url, { mode: "cors" });
+  if (!bookRes.ok) {
     throw {
-      message: res.message,
-      statusText: res.statusText,
-      status: res.status,
+      message: bookRes.message,
+      statusText: bookRes.statusText,
+      status: bookRes.status,
     };
   }
-  return res;
+
+  await console.log(bookRes);
+
+  return bookRes;
+};
+*/
+
+export const getBookData = async (id) => {
+  const urls = [
+    `https://openlibrary.org/works/${id}.json`,
+    `https://openlibrary.org/works/${id}/bookshelves.json`,
+    `https://openlibrary.org/works/${id}/ratings.json`,
+    `https://openlibrary.org/works/${id}/editions.json`,
+  ];
+  let allData = {};
+  //TODO Error handling
+  const requests = urls.map(async (url) => {
+    const bookRes = await fetch(url);
+    console.log(bookRes);
+    if (!bookRes.ok) {
+      throw {
+        message: bookRes.message,
+        statusText: bookRes.statusText,
+        status: bookRes.status,
+      };
+    }
+    return bookRes;
+  });
+  const responses = await Promise.all(requests);
+  const promises = responses.map((response) => response.json());
+  const [bookData, bookshelfData, ratingData, editionsData] =
+    await Promise.all(promises);
+  allData = { bookData, bookshelfData, ratingData, editionsData };
+  return allData;
 };

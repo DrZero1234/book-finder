@@ -1,13 +1,15 @@
 @use "../../base";
 
-
-.page--wrapper{
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
+.page--wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }
 
-main{
-    background-color: base.$color-gray-1;
+main {
+  background-color: base.$color-gray-1;
 }
 
+footer {
+  background-color: base.$color-black-1;
+}

@@ -21,7 +21,21 @@ export const Navbar = () => {
   const [searchParams, setSearchParams] = useSearchParams("q");
   const navigate = useNavigate();
 
+  const primaryNavRef = useRef(null);
+  const navToggleRef = useRef(null);
+
   const searchTextRef = useRef(null);
+
+  const handleNavToggle = () => {
+    const visibility = primaryNavRef.current.getAttribute("data-visible");
+    if (visibility === "false") {
+      primaryNavRef.current.setAttribute("data-visible", "true");
+      navToggleRef.current.setAttribute("aria-expanded", "true");
+    } else {
+      primaryNavRef.current.setAttribute("data-visible", "false");
+      navToggleRef.current.setAttribute("aria-expanded", "false");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +53,7 @@ export const Navbar = () => {
       <div className="logo">
         <Link to="/">
           <picture className="page--logo">
-            <source srcSet={pageLogo} media="(min-width: 768px)" />
+            <source srcSet={pageLogo} media="(min-width: 48rem)" />
             <img src={mobileLogo} alt="page logo" />
           </picture>
         </Link>
@@ -49,12 +63,19 @@ export const Navbar = () => {
         aria-controls="primary-navigation"
         aria-expanded="false"
         className="mobile--nav--toggle"
+        onClick={() => handleNavToggle()}
+        ref={navToggleRef}
       >
         <span className="sr-only">Menu</span>
       </button>
 
       <nav>
-        <ul className="primary--navigation" id="primary-navigation">
+        <ul
+          className="primary--navigation"
+          id="primary-navigation"
+          ref={primaryNavRef}
+          data-visible="false"
+        >
           <h2 className="nav--menu__title">Menu</h2>
           <li className="nav__item">
             <NavLink to="about">About</NavLink>

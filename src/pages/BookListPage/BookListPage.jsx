@@ -13,13 +13,11 @@ export const BookListPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { docs: booksData } = useLoaderData();
-  console.log(useLoaderData());
-
   return (
     <>
       <h1>Book list page</h1>
       <span>Result for {searchParams.get("q")}</span>
-      {booksData ? (
+      {booksData.length ? (
         <BookList bookListData={booksData} />
       ) : (
         <p>Book(s) not found</p>

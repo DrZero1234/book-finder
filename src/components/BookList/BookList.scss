@@ -1,8 +1,11 @@
 @use "../../base";
 
-.book--list--wrapper{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(175px,250px));
-    justify-content: center;
-    gap: 1.5em;
+.book--list--wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-auto-rows: minmax(0, 1fr);
+  align-items: stretch;
+  justify-items: center;
+  gap: 1.5em;
 }

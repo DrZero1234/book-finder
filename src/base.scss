@@ -6,12 +6,12 @@ $neue-medium-italic: "HelveticaNeueMediumItalic";
 
 $jost-bold: "JostBold";
 $jost-regular: "JostRegular";
+$jost-semibold: "JostSemiBold";
 
 $color-black-1: #121823;
 $color-black-2: #303947;
 $color-black-3: #1d2330;
 $color-black-4: #424b58;
-
 
 $color-blue-1: #1fc7ff;
 
@@ -22,46 +22,54 @@ $color-orange-1: #f18e7d;
 
 $color-gray-1: #f3f2f3;
 $color-gray-2: #f8f9fa;
-
+$color-gray-3: #9199a6;
 
 @font-face {
-    font-family: "JostRegular";
-    src: local("JostRegular") url("./fonts/Jost-Regular.ttf") format("truetype");
+  font-family: "JostSemiBold";
+  src: local("JostSemiBold") url("./fonts/Jost-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "JostBold";
-    src: local("JostBold") url("./fonts/Jost-Bold.ttf") format("truetype");
+  font-family: "JostRegular";
+  src: local("JostRegular") url("./fonts/Jost-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "HelveticaNeueBlack";
-    src:local("HelveticaNeueBlack") url("./fonts/HelveticaNeueBlack.ttf") format("truetype");
+  font-family: "JostBold";
+  src: local("JostBold") url("./fonts/Jost-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "HelveticaNeueBold";
-    src: local("HelveticaNeueBold"), url("./fonts/HelveticaNeueBold.ttf") format("truetype");
-    font-weight: 900;
+  font-family: "HelveticaNeueBlack";
+  src: local("HelveticaNeueBlack") url("./fonts/HelveticaNeueBlack.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: "HelveticaNeueLight";
-    src: local("HelveticaNeueLight"), url("./fonts/HelveticaNeueLight.ttf") format("truetype");
+  font-family: "HelveticaNeueBold";
+  src:
+    local("HelveticaNeueBold"),
+    url("./fonts/HelveticaNeueBold.ttf") format("truetype");
+  font-weight: 900;
 }
 
 @font-face {
-    font-family: "HelveticaNeueMedium";
-    src: local("HelveticaNeueMedium"), url("./fonts/HelveticaNeueMedium.ttf") format("truetype");
+  font-family: "HelveticaNeueLight";
+  src:
+    local("HelveticaNeueLight"),
+    url("./fonts/HelveticaNeueLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "HelveticaNeueMediumItalic";
-    src: local("HelveticaNeueMediumItalic"), url("./fonts/HelveticaNeueMediumItalic.ttf") format("truetype");
+  font-family: "HelveticaNeueMedium";
+  src:
+    local("HelveticaNeueMedium"),
+    url("./fonts/HelveticaNeueMedium.ttf") format("truetype");
 }
 
-
-
-
-
-
+@font-face {
+  font-family: "HelveticaNeueMediumItalic";
+  src:
+    local("HelveticaNeueMediumItalic"),
+    url("./fonts/HelveticaNeueMediumItalic.ttf") format("truetype");
+}
