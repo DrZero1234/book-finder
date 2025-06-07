@@ -24,7 +24,24 @@ export const Navbar = () => {
   const primaryNavRef = useRef(null);
   const navToggleRef = useRef(null);
 
+  const searchToggleRef = useRef(null);
   const searchTextRef = useRef(null);
+  const overlayRef = useRef(null);
+
+  const closeOverlayRef = useRef(null);
+
+  const handleSearchToggle = () => {
+    const visibility = searchTextRef.current.getAttribute("data-activesearch");
+    if (visibility === "false") {
+      searchToggleRef.current.setAttribute("aria-expanded", "true");
+      searchTextRef.current.setAttribute("data-activesearch", "true");
+      overlayRef.current.style.display = "block";
+    } else {
+      searchToggleRef.current.setAttribute("aria-expanded", "false");
+      searchTextRef.current.setAttribute("data-activesearch", "false");
+      overlayRef.current.style.display = "none";
+    }
+  };
 
   const handleNavToggle = () => {
     const visibility = primaryNavRef.current.getAttribute("data-visible");
@@ -35,6 +52,17 @@ export const Navbar = () => {
       primaryNavRef.current.setAttribute("data-visible", "false");
       navToggleRef.current.setAttribute("aria-expanded", "false");
     }
+  };
+
+  const handleCloseOverlay = () => {
+    const isOverlayOpen = overlayRef.current.style.display === "block";
+    if (isOverlayOpen) {
+      searchToggleRef.current.setAttribute("aria-expanded", "false");
+      searchTextRef.current.setAttribute("data-activesearch", "false");
+      overlayRef.current.style.display = "none";
+    }
+    console.log(isOverlayOpen);
+    return;
   };
 
   const handleSubmit = (e) => {
@@ -88,24 +116,50 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <form
-        className="search--form"
-        id="search_form"
-        role="search"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <input
-          name="q"
-          aria-label="Search books"
-          placeholder="Book title"
-          type="search"
-          ref={searchTextRef}
-        />
-        <button type="submit">
-          <span className="search--button__icon"></span>
+      <div className="overlay" ref={overlayRef}>
+        <button
+          className="close--overlay"
+          type="button"
+          ref={closeOverlayRef}
+          onClick={() => handleCloseOverlay()}
+        >
+          <MdClose size="24px" color="white" />
+          <span className="sr-only">Cancel search</span>
         </button>
-      </form>
-      <div className="overlay"></div>
+        <div className="overlay--content">
+          <form
+            className="search--form"
+            id="search_form"
+            role="search"
+            onSubmit={(e) => handleSubmit(e)}
+          >
+            <input
+              name="q"
+              id="book_searchbar"
+              aria-label="Search books"
+              placeholder="Book title"
+              type="search"
+              data-activesearch="false"
+              ref={searchTextRef}
+            />
+
+            <button type="submit">
+              <span className="search--button__icon"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <button
+        type="button"
+        aria-controls="book_searchbar"
+        aria-expanded="false"
+        className="search--toggle--btn"
+        ref={searchToggleRef}
+        onClick={() => handleSearchToggle()}
+      >
+        <MdSearch size="24px" />
+        <span className="sr-only">Toggle searchbar</span>
+      </button>
     </div>
   );
 };
