@@ -105,13 +105,24 @@ export const Navbar = () => {
           data-visible="false"
         >
           <h2 className="nav--menu__title">Menu</h2>
-          <li className="nav__item">
+          <li className="nav--item mobile--searchbar">
+            <input
+              name="q"
+              id="book_searchbar"
+              aria-label="Search books"
+              placeholder="Book title"
+              type="search"
+              ref={searchTextRef}
+              form="search_form"
+            />
+          </li>
+          <li className="nav--item">
             <NavLink to="about">About</NavLink>
           </li>
-          <li className="nav__item">
+          <li className="nav--item">
             <NavLink to="subjects">Subjects</NavLink>
           </li>
-          <li className="nav__item">
+          <li className="nav--item">
             <NavLink to="">Trending</NavLink>
           </li>
         </ul>
@@ -123,7 +134,7 @@ export const Navbar = () => {
           ref={closeOverlayRef}
           onClick={() => handleCloseOverlay()}
         >
-          <MdClose size="24px" color="white" />
+          <MdClose size="36px" />
           <span className="sr-only">Cancel search</span>
         </button>
         <div className="overlay--content">
