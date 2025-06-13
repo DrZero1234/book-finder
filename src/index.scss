@@ -69,3 +69,10 @@ p {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.subpage--title {
+  font-family: base.$jost-bold;
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 1em 0.5em;
+}

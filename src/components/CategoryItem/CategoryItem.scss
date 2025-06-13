@@ -1,0 +1,17 @@
+@use "../../base";
+
+.subject--list {
+  color: base.$color-black-5;
+  row-gap: 0.2em;
+}
+
+.subject--list a {
+  text-decoration: underline;
+  text-decoration-color: base.$color-black-5;
+}
+
+.subject--item h2 {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 1em 0;
+}

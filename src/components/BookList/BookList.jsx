@@ -2,6 +2,7 @@ import { BookListItem } from "../BookListItem/BookListItem";
 import "./BookList.scss";
 
 export const BookList = ({ bookListData }) => {
+  console.log(bookListData);
   return (
     <div className="book--list--wrapper">
       {bookListData.map((bookData) => {

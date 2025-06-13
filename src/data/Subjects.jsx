@@ -5,11 +5,11 @@ export const SubjectsMock = {
     categorySubjects: [
       {
         subjectName: "Architecture",
-        subjectKey: "    7e8c9a4c-781a-49b0-8a03-c9858797c673",
+        subjectKey: "7e8c9a4c-781a-49b0-8a03-c9858797c673",
       },
       {
         subjectName: "Art Instruction",
-        subjectKey: "    1811890e-1982-46bb-9a18-de62f8d0d4a9",
+        subjectKey: " 1811890e-1982-46bb-9a18-de62f8d0d4a9",
       },
       {
         subjectName: "Art History",
@@ -81,8 +81,139 @@ export const SubjectsMock = {
   },
   Fiction: {
     categoryName: "Fiction",
-    categoryKey: "gnjhdfsjgn51",
-    categorySubjects: [],
+    categoryKey: "ee294f9a-0cbd-4d85-8404-f3a781be53e3",
+    categorySubjects: [
+      {
+        subjectName: "Fantasy",
+        subjectKey: "964fcba0-8cad-4ed2-a643-0c111f672108",
+      },
+      {
+        subjectName: "Historical Fiction",
+        subjectKey: "ebf9a585-f6ae-49fd-b349-fa62879dfb84",
+      },
+      {
+        subjectName: "Horror",
+        subjectKey: "d34c8a17-9c29-412b-8604-9c975d15c256",
+      },
+      {
+        subjectName: "Humor",
+        subjectKey: "b51cbda4-511d-4c74-b6b1-82adae8ebed8",
+      },
+      {
+        subjectName: "Literature",
+        subjectKey: "1fff7c4a-d678-477c-96eb-a9087614468d",
+      },
+      {
+        subjectName: "Magic",
+        subjectKey: "bed59030-83f2-4436-9cc9-d8cc822d3b78",
+      },
+      {
+        subjectName: "Mystery and detective stories",
+        subjectKey: "812dfe26-b39f-4c67-a1c4-56d96d51d6ea",
+      },
+      {
+        subjectName: "Plays",
+        subjectKey: "8f7c654e-70d8-4269-9d40-bd54c3b52759",
+      },
+      {
+        subjectName: "Poetry",
+        subjectKey: "ee566d31-b755-44c6-94d4-fa69e9c4404a",
+      },
+      {
+        subjectName: "Romance",
+        subjectKey: "63cb76c7-ca13-4b19-94a0-3adccecca0c0",
+      },
+      {
+        subjectName: "Science Fiction",
+        subjectKey: "bd953bd9-ff7d-4140-af6d-19190cf82be7",
+      },
+      {
+        subjectName: "Short Stories",
+        subjectKey: "c2a7a626-9299-41e9-8398-25aa9e1792e1",
+      },
+      {
+        subjectName: "Thriller",
+        subjectKey: "f789272e-b867-413a-b13f-37bf358ceff4",
+      },
+      {
+        subjectName: "Young Adult",
+        subjectKey: "dce106ed-0650-42d0-9512-ed8b72e28cdf",
+      },
+    ],
+  },
+  "Science & Mathematics": {
+    categoryName: "Science & Mathematics",
+    categoryKey: "ee294f9a-0cbd-4d85-8404-f3a781be53e3",
+    categorySubjects: [
+      {
+        subjectName: "Biology",
+        subjectKey: "0e8b1339-150d-4011-8f56-7ba5bb655d17",
+      },
+      {
+        subjectName: "Chemistry",
+        subjectKey: "8edbe46e-d58c-4f1a-a73b-54ca33bd0080",
+      },
+      {
+        subjectName: "Mathematics",
+        subjectKey: "c2ba6f1a-849a-4af5-83dd-d2e1b249f49f",
+      },
+      {
+        subjectName: "Physics",
+        subjectKey: "f1be0046-4889-49f6-9f7c-be32809d6aa8",
+      },
+      {
+        subjectName: "Programming",
+        subjectKey: "89b12c36-8dad-46d4-a63b-bc6bd9f94737",
+      },
+    ],
+  },
+  "Children´s": {
+    categoryName: "Children´s",
+    categoryKey: "89b12c36-8dad-46d4-a63b-bc6bd9f94737",
+    categorySubjects: [
+      {
+        subjectName: "Kids Books",
+        subjectKey: "c29b329b-fbdc-4b3b-b10b-de5abc150dc1",
+      },
+      {
+        subjectName: "Stories in Rhyme",
+        subjectKey: "3ee6713e-0bbc-4721-b43b-3f1c88e5ec59",
+      },
+      {
+        subjectName: "Baby Books",
+        subjectKey: "a27099cb-510e-489a-8df9-42d0f5eeac2c",
+      },
+      {
+        subjectName: "Bedtime Books",
+        subjectKey: "64461165-2951-4720-96da-b88c51feeee2",
+      },
+      {
+        subjectName: "Picture Books",
+        subjectKey: "017c63d4-18ce-4c6b-ba82-750beefa94f9",
+      },
+    ],
+  },
+  History: {
+    categoryName: "History",
+    categoryKey: "7879d00e-55d8-4e63-937b-01ba4b26a68a",
+    categorySubjects: [
+      {
+        subjectName: "Ancient Civilization",
+        subjectKey: "19ab97a1-40d8-443c-812f-b129c808c489",
+      },
+      {
+        subjectName: "Archaeology",
+        subjectKey: "b9a1b67b-4527-4de0-850f-5a9db6372a4d",
+      },
+      {
+        subjectName: "World War II",
+        subjectKey: "fc0f85e2-ac61-4e0c-bd64-058fd3af72da",
+      },
+      {
+        subjectName: "Social Life and Customs",
+        subjectKey: "2a724465-0e4b-44ca-a302-5a68301b34d0",
+      },
+    ],
   },
 };
 
@@ -102,29 +233,7 @@ export const Subjects = {
     "Photography",
   ],
   Animals: ["Bears", "Cats", "Kittens", "Dogs", "Puppies"],
-  Fiction: [
-    "Fantasy",
-    "Historical Fiction",
-    "Horror",
-    "Humor",
-    "Literature",
-    "Magic",
-    "Mystery and detective stories",
-    "Plays",
-    "Poetry",
-    "Romance",
-    "Science Fiction",
-    "Short Stories",
-    "Thriller",
-    "Young Adult",
-  ],
-  "Science & Mathematics": [
-    "Biology",
-    "Chemistry",
-    "Mathematics",
-    "Physics",
-    "Programming",
-  ],
+  "Science & Mathematics": [],
   "Business & Finance": [
     "Management",
     "Entrepreneurship",
@@ -132,20 +241,8 @@ export const Subjects = {
     "Business Success",
     "Finance",
   ],
-  "Children's": [
-    "Kids Books",
-    "Stories in Rhyme",
-    "Baby Books",
-    "Bedtime Books",
-    "Picture Books",
-  ],
-  History: [
-    "Ancient Civilization",
-    "Archaeology",
-    "Anthropology",
-    "World War II",
-    "Social Life and Customs",
-  ],
+  "Children's": [],
+  History: [],
   "Health & Wellness": [
     "Cooking",
     "Cookbooks",
@@ -187,4 +284,3 @@ export const Subjects = {
     "Computer Science",
   ],
 };
-

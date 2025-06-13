@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./BookListItem.scss";
 import defaultCover from "../../assets/default_cover.jpg";
 
 export const BookListItem = ({ bookData }) => {
   const {
     author_key,
+    authors,
     author_name,
     cover_edition_key,
     first_publish_year,
@@ -13,6 +14,8 @@ export const BookListItem = ({ bookData }) => {
   } = bookData;
   const idSplit = key.split("/");
   const bookKey = idSplit[idSplit.length - 1];
+  const { authorKey: authorKeyParams } = useParams();
+  console.log(authorKeyParams);
 
   return (
     <div className="book--wrapper">
@@ -33,16 +36,26 @@ export const BookListItem = ({ bookData }) => {
         <Link to={`/book/${bookKey}`} className="book--list--item--link">
           {title}
         </Link>
-        <div className="book--list--item--author--details">
-          <span>By</span>{" "}
-          {author_key ? (
-            <Link className="author--name--text" to={`author/${author_key[0]}`}>
-              {author_name[0]}
-            </Link>
-          ) : (
-            <span className="author--name--text">Unknown author</span>
-          )}
-        </div>
+        {!authorKeyParams && (
+          <div className="book--list--item--author--details">
+            <span>By</span>{" "}
+            {author_key ? (
+              <Link
+                className="author--name--text"
+                to={`/authors/${author_key[0]}`}
+              >
+                {author_name[0]}
+              </Link>
+            ) : authors[0].key ? (
+              <Link className="author--name--text" to={`${authors[0].key}`}>
+                {authors[0].name}
+              </Link>
+            ) : (
+              <span className="author--name--text">Unknown author</span>
+            )}
+          </div>
+        )}
+
         <span className="book--list--item--year">
           Published on {first_publish_year}
         </span>

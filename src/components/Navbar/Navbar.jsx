@@ -13,11 +13,12 @@ import mobileLogo from "../../assets/mobile-page-logo.png";
 import { MdHome, MdSearch, MdClose } from "react-icons/md";
 import { RiFileListFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export const Navbar = () => {
   const HomeLogo = <MdHome size="24px" className="nav--item__icon" />;
 
+  const [searchText, setSearchText] = useState("");
   const [searchParams, setSearchParams] = useSearchParams("q");
   const navigate = useNavigate();
 
@@ -35,11 +36,10 @@ export const Navbar = () => {
     if (visibility === "false") {
       searchToggleRef.current.setAttribute("aria-expanded", "true");
       searchTextRef.current.setAttribute("data-activesearch", "true");
-      overlayRef.current.style.display = "block";
+      overlayRef.current.style.transform = "translateY(0%)";
     } else {
       searchToggleRef.current.setAttribute("aria-expanded", "false");
       searchTextRef.current.setAttribute("data-activesearch", "false");
-      overlayRef.current.style.display = "none";
     }
   };
 
@@ -55,13 +55,13 @@ export const Navbar = () => {
   };
 
   const handleCloseOverlay = () => {
-    const isOverlayOpen = overlayRef.current.style.display === "block";
+    const isOverlayOpen = overlayRef.current.style.transform;
+    console.log(isOverlayOpen);
     if (isOverlayOpen) {
       searchToggleRef.current.setAttribute("aria-expanded", "false");
       searchTextRef.current.setAttribute("data-activesearch", "false");
-      overlayRef.current.style.display = "none";
+      overlayRef.current.style.transform = "translateY(-100%)";
     }
-    console.log(isOverlayOpen);
     return;
   };
 
@@ -74,6 +74,9 @@ export const Navbar = () => {
         q: searchTextRef.current.value,
       }).toString(),
     });
+    primaryNavRef.current.setAttribute("data-visible", "false");
+    navToggleRef.current.setAttribute("aria-expanded", "false");
+    overlayRef.current.style.transform = "translateY(-100%)";
   };
 
   return (
@@ -105,14 +108,17 @@ export const Navbar = () => {
           data-visible="false"
         >
           <h2 className="nav--menu__title">Menu</h2>
-          <li className="nav--item mobile--searchbar">
+
+          <li className="nav--item">
             <input
+              className="mobile--searchbar search--textinput"
               name="q"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
               id="book_searchbar"
               aria-label="Search books"
               placeholder="Book title"
               type="search"
-              ref={searchTextRef}
               form="search_form"
             />
           </li>
@@ -123,7 +129,7 @@ export const Navbar = () => {
             <NavLink to="subjects">Subjects</NavLink>
           </li>
           <li className="nav--item">
-            <NavLink to="">Trending</NavLink>
+            <NavLink to="trending">Trending</NavLink>
           </li>
         </ul>
       </nav>
@@ -147,6 +153,9 @@ export const Navbar = () => {
             <input
               name="q"
               id="book_searchbar"
+              className="search--textinput"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
               aria-label="Search books"
               placeholder="Book title"
               type="search"

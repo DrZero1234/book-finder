@@ -25,6 +25,11 @@ figure > img {
   font-size: 1.2rem;
 }
 
+.book--list--item--content {
+  display: flex;
+  flex-direction: column;
+}
+
 .book--list--item--cover--wrapper {
   padding: 2em;
   background-color: base.$color-gray-2;

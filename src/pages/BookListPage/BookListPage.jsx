@@ -16,7 +16,7 @@ export const BookListPage = () => {
   return (
     <>
       <h1>Book list page</h1>
-      <span>Result for {searchParams.get("q")}</span>
+      <span className="subpage--title">Result for {searchParams.get("q")}</span>
       {booksData.length ? (
         <BookList bookListData={booksData} />
       ) : (

@@ -14,6 +14,36 @@ export const getBookListByName = async (searchTerm) => {
   return data;
 };
 
+export const GetBookListByAuthor = async (authorKey) => {
+  const url = `https://openlibrary.org/authors/${authorKey}/works.json?limit=20`;
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw {
+      message: res.message,
+      statusText: res.statusText,
+      status: res.status,
+    };
+  }
+
+  const data = await res.json();
+  return data;
+};
+
+export const getBookListBySubject = async (subject_name) => {
+  const url = `https://openlibrary.org/subjects/${subject_name}.json`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw {
+      message: res.message,
+      statusText: res.statusText,
+      status: res.status,
+    };
+  }
+  const data = await res.json();
+  return data;
+};
+
 /*
 export const getBookData = async (id) => {
   const url = `https://openlibrary.org/works/${id}.json`;
