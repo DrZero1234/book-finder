@@ -15,7 +15,6 @@ export const BookListItem = ({ bookData }) => {
   const idSplit = key.split("/");
   const bookKey = idSplit[idSplit.length - 1];
   const { authorKey: authorKeyParams } = useParams();
-  console.log(authorKeyParams);
 
   return (
     <div className="book--wrapper">

@@ -73,7 +73,6 @@ export const getBookData = async (id) => {
   //TODO Error handling
   const requests = urls.map(async (url) => {
     const bookRes = await fetch(url);
-    console.log(bookRes);
     if (!bookRes.ok) {
       throw {
         message: bookRes.message,
