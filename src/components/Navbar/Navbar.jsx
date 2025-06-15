@@ -123,13 +123,19 @@ export const Navbar = () => {
             />
           </li>
           <li className="nav--item">
-            <NavLink to="about">About</NavLink>
+            <NavLink to="about" onClick={() => handleNavToggle()}>
+              About
+            </NavLink>
           </li>
           <li className="nav--item">
-            <NavLink to="subjects">Subjects</NavLink>
+            <NavLink to="subjects" onClick={() => handleNavToggle()}>
+              Subjects
+            </NavLink>
           </li>
           <li className="nav--item">
-            <NavLink to="trending">Trending</NavLink>
+            <NavLink to="trending" onClick={() => handleNavToggle()}>
+              Trending
+            </NavLink>
           </li>
         </ul>
       </nav>

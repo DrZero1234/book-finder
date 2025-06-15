@@ -4,11 +4,10 @@
   margin: 1em;
   display: grid;
   grid-template-columns: 1fr;
-  justify-content: center;
   gap: 1.5em;
 
   @media (min-width: 64rem) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
 }
 
@@ -28,8 +27,18 @@
   }
 }
 
+.book--site--media--wrapper {
+  display: block;
+
+  @media (min-width: 64rem) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .book--cover--image {
-  width: 75%;
+  max-width: 50%;
 
   @media (min-width: 64rem) {
     width: 100%;
